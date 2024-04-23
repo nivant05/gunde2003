@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Data</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Password</th>
+            </tr>
+            <tbody id="dataTable"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const formData = JSON.parse(localStorage.getItem('formData'));
+
+        if (formData) {
+            const tableBody = document.getElementById('dataTable');
+            const row = document.createElement('tr');
+
+            const nameCell = document.createElement('td');
+            nameCell.textContent = formData.name;
+            row.appendChild(nameCell);
+
+            const numberCell = document.createElement('td');
+            numberCell.textContent = formData.number;
+            row.appendChild(numberCell);
+
+            const emailCell = document.createElement('td');
+            emailCell.textContent = formData.email;
+            row.appendChild(emailCell);
+
+            const dobCell = document.createElement('td');
+            dobCell.textContent = formData.dob;
+            row.appendChild(dobCell);
+
+            const passwordCell = document.createElement('td');
+            passwordCell.textContent = formData.password;
+            row.appendChild(passwordCell);
+
+            tableBody.appendChild(row);
+        }
+    </script>
+</body>
+</html>
